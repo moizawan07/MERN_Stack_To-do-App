@@ -6,6 +6,25 @@ import { FaTasks, FaRegSmileBeam, FaMagic, FaGithub, FaLinkedin } from 'react-ic
 export default function Home() {
   const navigate = useNavigate();
 
+  const handleGetStarted =  () => {
+   
+      fetch('http://localhost:3000/getStarted',{
+         method : 'GET', 
+         credentials: 'include',
+      })
+      .then(res => {
+
+        if(res.status != 200) {
+          return navigate('/login')
+        }
+          navigate('/todo')
+      })
+      .catch(err => console.log('catched', err))
+
+    
+    }
+  
+
   return (
     <div className="min-h-screen bg-gradient-to-r from-yellow-400 via-blue-500 to-green-500 text-white">
       <section className="flex flex-col items-center justify-center px-6 py-20 text-center">
@@ -28,7 +47,7 @@ export default function Home() {
         <motion.button
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.95 }}
-          onClick={() => navigate('/todo')}
+          onClick={handleGetStarted}
           className="bg-white hover:bg-gray text-black px-8 py-4 rounded-full text-lg font-semibold shadow-lg transition"
         >
           Get Started
