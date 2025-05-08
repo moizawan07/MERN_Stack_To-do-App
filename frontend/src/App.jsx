@@ -5,21 +5,24 @@ import Todo from './pages/Todo';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
 import PageNotFound from './pages/404';
-
+import {ToastContainer} from 'react-toastify'
 
 
 function App() {
   
   return (
+    <>
+    <ToastContainer />
    <BrowserRouter>
      <Routes>
         <Route path='/' element={<Home />}/> 
-        <Route path='todo' element={<Todo />}/> 
+        <Route path='/todo' element={<Todo />}/> 
         <Route path='/signup' element={<Signup />}/> 
         <Route path='login' element={<Login />}/> 
         <Route path='*' element={<PageNotFound />}/> 
      </Routes>
    </BrowserRouter>
+  </>
   )
 }
 

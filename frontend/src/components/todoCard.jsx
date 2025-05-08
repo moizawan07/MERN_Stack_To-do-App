@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 function StatCard({ title, count, color, icon }) {
+  
     return (
       <motion.div
         whileHover={{ scale: 1.03 }}
